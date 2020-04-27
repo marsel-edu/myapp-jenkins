@@ -11,6 +11,14 @@ spec:
     command:
     - cat
     tty: true
+    env:
+      name: DOCKER_HOST
+      value: tcp://localhost:2375
+  - name: dind-daemon
+    image: docker:18-dind
+    command:
+    - dockerd-entrypoint.sh
+    tty: true
 """
 ) {
     node(POD_LABEL) {
