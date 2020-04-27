@@ -6,8 +6,8 @@ metadata:
     some-label: some-label-value
 spec:
   containers:
-  - name: busybox
-    image: busybox
+  - name: jenkins-slave
+    image: jenkinsci/jnlp-slave
     command:
     - cat
     tty: true
@@ -15,8 +15,8 @@ spec:
 ) {
     node(POD_LABEL) {
       checkout scm
-      container('busybox') {
-        sh "pwd ; ls"
+      container('jenkins-slave') {
+        sh "make build"
       }
     }
 }
