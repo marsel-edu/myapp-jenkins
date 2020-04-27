@@ -2,6 +2,7 @@
 repository = testrepo
 version = latest
 account = 517029295774
+region =  us-east-1
 
 repo:
 	aws ecr create-repository --repository-name $(repository)
@@ -14,4 +15,5 @@ build:
 	docker build -t $(account).dkr.ecr.us-east-1.amazonaws.com/$(repository):$(version) .
 
 push: login
+	export AWS_DEFAULT_REGION=us-east-1
 	docker push $(account).dkr.ecr.us-east-1.amazonaws.com/$(repository):$(version)
