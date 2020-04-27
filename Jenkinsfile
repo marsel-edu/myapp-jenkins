@@ -16,7 +16,7 @@ spec:
     node(POD_LABEL) {
       checkout scm
       container('busybox') {
-        sh "make build"
+        sh "pwd ; ls"
       }
     }
 }
