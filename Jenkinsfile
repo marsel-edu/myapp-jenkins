@@ -1,5 +1,5 @@
 def label = "ledger-${UUID.randomUUID().toString()}"
-podTemplate(label: label, serviceAccount: jenkins-sa, containers: [
+podTemplate(label: label, containers: [
     containerTemplate(
       name: 'jenkins-slave',
       image: 'jenkinsci/jnlp-slave',
