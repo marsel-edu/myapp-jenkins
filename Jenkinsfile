@@ -1,7 +1,5 @@
 def label = "ledger-${UUID.randomUUID().toString()}"
-podTemplate(
-  label: label,
-  containers: [
+podTemplate(label: label, serviceAccount: jenkins-sa, containers: [
     containerTemplate(
       name: 'jenkins-slave',
       image: 'jenkinsci/jnlp-slave',
@@ -19,10 +17,7 @@ podTemplate(
       ttyEnabled: true,
       command: 'dockerd-entrypoint.sh'
       ),
-    ],
-  serviceAccount: jenkins-sa
-  )
-  {
+  ]) {
     node(label) {
       checkout scm
       container('jenkins-slave') {
