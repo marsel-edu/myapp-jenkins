@@ -19,6 +19,8 @@ spec:
     command:
     - dockerd-entrypoint.sh
     tty: true
+    securityContext: 
+      privileged: true 
 """
 ) {
     node(POD_LABEL) {
