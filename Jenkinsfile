@@ -14,8 +14,9 @@ spec:
 """
 ) {
     node(POD_LABEL) {
+      checkout scm
       container('busybox') {
-        sh "hostname"
+        sh "make build"
       }
     }
 }
