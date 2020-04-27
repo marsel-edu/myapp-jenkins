@@ -12,7 +12,7 @@ spec:
     - cat
     tty: true
     env:
-      name: DOCKER_HOST
+    - name: DOCKER_HOST
       value: 'tcp://localhost:2375'
   - name: dind-daemon
     image: 'docker:18-dind'
