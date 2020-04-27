@@ -26,7 +26,10 @@ spec:
     node(POD_LABEL) {
       checkout scm
       container('jenkins-slave') {
-        sh "make build"
+        sh "
+        make build
+        make push
+        "
       }
     }
 }
