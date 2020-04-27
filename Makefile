@@ -15,5 +15,4 @@ build:
 	docker build -t $(account).dkr.ecr.us-east-1.amazonaws.com/$(repository):$(version) .
 
 push: login
-	export AWS_DEFAULT_REGION=us-east-1
 	docker push $(account).dkr.ecr.us-east-1.amazonaws.com/$(repository):$(version)
