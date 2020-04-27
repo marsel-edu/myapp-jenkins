@@ -13,9 +13,9 @@ spec:
     tty: true
     env:
       name: DOCKER_HOST
-      value: tcp://localhost:2375
+      value: 'tcp://localhost:2375'
   - name: dind-daemon
-    image: docker:18-dind
+    image: 'docker:18-dind'
     command:
     - dockerd-entrypoint.sh
     tty: true
